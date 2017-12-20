@@ -1,6 +1,7 @@
 package forecast.itpvt.com.forecast;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Build;
@@ -11,17 +12,20 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
     WebView webView;
     TextView tvNoInternet;
     ImageView ivNoInternet;
+    private ProgressBar progress;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         webView = (WebView) findViewById(R.id.webView);
+        progress=(ProgressBar)findViewById(R.id.progressBar);
         ivNoInternet = (ImageView) findViewById(R.id.ivNoNet);
 
 
@@ -40,7 +44,20 @@ public class MainActivity extends AppCompatActivity {
             webSettings.setRenderPriority(WebSettings.RenderPriority.HIGH);
 
 
-            webView.setWebViewClient(new WebViewClient());
+            webView.setWebViewClient(new WebViewClient(){
+                @Override
+                public void onPageStarted(WebView view, String url, Bitmap favicon) {
+                    super.onPageStarted(view, url, favicon);
+                    progress.setVisibility(View.VISIBLE);
+                    setTitle("Loading....");
+                }
+                @Override
+                public void onPageFinished(WebView view, String url) {
+                    super.onPageFinished(view, url);
+                    progress.setVisibility(View.GONE);
+                    setTitle(view.getTitle());
+                }
+            });
 
             webView.loadUrl("http://forecast.com.pk");
 
