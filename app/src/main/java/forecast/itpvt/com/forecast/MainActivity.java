@@ -31,7 +31,6 @@ public class MainActivity extends AppCompatActivity {
         ivNoInternet = (ImageView) findViewById(R.id.ivNoNet);
         Intent intent = getIntent();
         url = intent.getStringExtra("URL");
-
         tvNoInternet= (TextView) findViewById(R.id.tvInternet);
 
 
