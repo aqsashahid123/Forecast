@@ -1,6 +1,7 @@
 package forecast.itpvt.com.forecast;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -20,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
     TextView tvNoInternet;
     ImageView ivNoInternet;
     private ProgressBar progress;
+    String url;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,8 +29,8 @@ public class MainActivity extends AppCompatActivity {
         webView = (WebView) findViewById(R.id.webView);
         progress=(ProgressBar)findViewById(R.id.progressBar);
         ivNoInternet = (ImageView) findViewById(R.id.ivNoNet);
-
-
+        Intent intent = getIntent();
+        url = intent.getStringExtra("URL");
 
         tvNoInternet= (TextView) findViewById(R.id.tvInternet);
 
@@ -59,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
 
-            webView.loadUrl("http://forecast.com.pk");
+            webView.loadUrl(url);
 
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
                 // chromium, enable hardware acceleration

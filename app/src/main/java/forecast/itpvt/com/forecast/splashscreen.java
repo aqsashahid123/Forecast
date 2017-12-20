@@ -52,7 +52,7 @@ public class splashscreen extends Activity {
                         waited += 100;
                     }
                     Intent intent = new Intent(splashscreen.this,
-                            MainActivity.class);
+                            LoginSignupActivity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                     startActivity(intent);
                     splashscreen.this.finish();
