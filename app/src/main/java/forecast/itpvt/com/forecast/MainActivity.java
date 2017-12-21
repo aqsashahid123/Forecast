@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         webView = (WebView) findViewById(R.id.webView);
-        progress=(ProgressBar)findViewById(R.id.progressBar);
+      //  progress=(ProgressBar)findViewById(R.id.progressBar);
         ivNoInternet = (ImageView) findViewById(R.id.ivNoNet);
         Intent intent = getIntent();
         url = intent.getStringExtra("URL");
@@ -39,27 +39,27 @@ public class MainActivity extends AppCompatActivity {
             ivNoInternet.setVisibility(View.GONE);
             tvNoInternet.setVisibility(View.GONE);
             webView.setVisibility(View.VISIBLE);
-            progress.setVisibility(View.VISIBLE);
+//            progress.setVisibility(View.VISIBLE);
 
 
             WebSettings webSettings = webView.getSettings();
             webSettings.setJavaScriptEnabled(true);
 
             webSettings.setRenderPriority(WebSettings.RenderPriority.HIGH);
-
+            webSettings.setCacheMode(WebSettings.LOAD_NO_CACHE);
             webView.loadUrl(url);
             webView.setWebViewClient(new WebViewClient(){
                 @Override
                 public void onPageStarted(WebView view, String url, Bitmap favicon) {
                     super.onPageStarted(view, url, favicon);
-                    progress.setVisibility(View.VISIBLE);
-                    setTitle("Loading....");
+                   // progress.setVisibility(View.VISIBLE);
+                //    setTitle("Loading....");
                 }
                 @Override
                 public void onPageFinished(WebView view, String url) {
                     super.onPageFinished(view, url);
-                    progress.setVisibility(View.GONE);
-                    setTitle(view.getTitle());
+                  //  progress.setVisibility(View.GONE);
+                   // setTitle(view.getTitle());
                 }
             });
 

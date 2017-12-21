@@ -34,7 +34,7 @@ public class LoginSignupActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(LoginSignupActivity.this,MainActivity.class);
-                String urlreg="http://forecast.com.pk/index.php/customer/account/create/";
+                String urlreg="http://www.forecast.com.pk/index.php/customer/account/create/";
                 intent.putExtra("URL",urlreg);
                 startActivity(intent);
             }
@@ -43,7 +43,7 @@ public class LoginSignupActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent= new Intent(LoginSignupActivity.this, MainActivity.class);
 
-                String urlslogin="http://forecast.com.pk/index.php/customer/account/login/referer/aHR0cDovL2ZvcmVjYXN0LmNvbS5way9pbmRleC5waHAvP19fX1NJRD1V/";
+                String urlslogin="http://www.forecast.com.pk/index.php/customer/account/login/";
                 intent.putExtra("URL",urlslogin);
                 startActivity(intent);
 //                startActivity(new Intent().setClass(v.getContext(), WebActivity.class));
