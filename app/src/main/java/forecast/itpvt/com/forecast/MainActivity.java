@@ -39,12 +39,15 @@ public class MainActivity extends AppCompatActivity {
             ivNoInternet.setVisibility(View.GONE);
             tvNoInternet.setVisibility(View.GONE);
             webView.setVisibility(View.VISIBLE);
+            progress.setVisibility(View.VISIBLE);
+
 
             WebSettings webSettings = webView.getSettings();
             webSettings.setJavaScriptEnabled(true);
+
             webSettings.setRenderPriority(WebSettings.RenderPriority.HIGH);
 
-
+            webView.loadUrl(url);
             webView.setWebViewClient(new WebViewClient(){
                 @Override
                 public void onPageStarted(WebView view, String url, Bitmap favicon) {
@@ -60,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
 
-            webView.loadUrl(url);
+
 
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
                 // chromium, enable hardware acceleration
@@ -76,6 +79,7 @@ public class MainActivity extends AppCompatActivity {
         if (!isNetworkAvailable()){
 
             webView.setVisibility(View.GONE);
+            progress.setVisibility(View.GONE);
             ivNoInternet.setVisibility(View.VISIBLE);
             tvNoInternet.setVisibility(View.VISIBLE);
 

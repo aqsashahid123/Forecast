@@ -7,12 +7,22 @@
     android:id="@+id/lin_lay"
     android:gravity="center"
     android:orientation="vertical" >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:background="@color/transBlack"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <ImageView
-        android:id="@+id/splash"
-        android:layout_width="270dp"
-        android:layout_height="100dp"
-        android:background="@drawable/forecast21" />
+        <ImageView
+            android:id="@+id/splash"
+            android:layout_width="270dp"
+            android:layout_height="100dp"
+            android:background="@drawable/forecast21" />
+
+
+    </LinearLayout>
+
 
 </LinearLayout>
 
