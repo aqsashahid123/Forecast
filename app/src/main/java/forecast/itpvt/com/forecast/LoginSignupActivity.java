@@ -18,6 +18,10 @@ public class LoginSignupActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_signup);
 
+
+
+
+
         Button startedBtn = (Button) findViewById(R.id.login_btn_get_started);
         register=(Button)findViewById(R.id.register);
         skip=(TextView)findViewById(R.id.skip);
